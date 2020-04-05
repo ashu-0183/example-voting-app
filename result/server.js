@@ -1,7 +1,7 @@
 var express = require('express'),
     async = require('async'),
-    const { Client } = require('pg')
     client = new Client()
+    client = require('pg')
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
     methodOverride = require('method-override'),
