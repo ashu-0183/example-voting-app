@@ -1,6 +1,5 @@
 var express = require('express'),
     async = require('async'),
-    client = new Client()
     client = require('pg')
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
