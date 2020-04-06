@@ -37,12 +37,10 @@ async.retry(
     }
     console.log("Connected to db");
     getVotes(client);
-      console.log("getVotes completed")
   }
 );
 
 function getVotes(client) {
-    console.log("inside getVotes")
   client.query('SELECT vote, COUNT(id) AS count FROM votes GROUP BY vote', [], function(err, result) {
     console.log("inside query")
       if (err) {
@@ -51,13 +49,9 @@ function getVotes(client) {
     } else {
        
       var votes = collectVotesFromResult(result);
-            console.log("votes=="+ votes)
-      
-
-      io.sockets.emit("scores", JSON.stringify(votes));
+            console.log("votes=="+ JSON.stringify(votes))
+            io.sockets.emit("scores", JSON.stringify(votes));
     }
-    console.log("client==="+ client)
-
     setTimeout(function() {getVotes(client) }, 1000);
   });
 }
